@@ -3,7 +3,7 @@
 A minimal productivity dashboard built with **React + Vite**, featuring weather, time, focus timer, activity chart, tasks, and notes.
 
 ## Live Demo
-[https://motion-dashboard.vercel.app/](https://motion-dashboard.vercel.app/)
+[Dashboard](https://dashboard-teal-delta-49.vercel.app/)
 ## Screenshot
 <img src="./screenshots/dashboard.png" width="500"/>
 
