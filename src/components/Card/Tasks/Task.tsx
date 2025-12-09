@@ -1,7 +1,3 @@
-import Checkbox from "@mui/material/Checkbox";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 
 export type TaskProps = {
   // Define any props if needed in the future

@@ -2,8 +2,15 @@ import { IoSunnyOutline } from "react-icons/io5";
 
 import React from "react";
 
+type WeatherData = {
+  main: {
+    temp: number;
+  };
+  name: string;
+};
+
 function Weather() {
-  const weatherApi = import.meta.env.VITE_WEATHER_API_KEY;
+  // const weatherApi = import.meta.env.VITE_WEATHER_API_KEY;
   const cityName = localStorage.getItem("cityName") || "London";
   const getWeather = async () => {
     const response = await fetch(
@@ -12,7 +19,7 @@ function Weather() {
     const data = await response.json();
     return data;
   };
-  const [weatherData, setWeatherData] = React.useState(null);
+  const [weatherData, setWeatherData] = React.useState<WeatherData | null>(null);
 
   React.useEffect(() => {
     getWeather().then((data) => setWeatherData(data));
