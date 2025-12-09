@@ -8,3 +8,8 @@ html, body, #root {
   width: 100%;
 }
 
+@theme{
+  --color-custom-gray: #25272C;
+  --color-custom-bg: #1D1F26;
+}
+

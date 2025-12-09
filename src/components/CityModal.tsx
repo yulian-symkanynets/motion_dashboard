@@ -4,12 +4,8 @@ function CityModal({ setIsOpen }: { setIsOpen: (value: boolean | ((prev: boolean
     const [cityName, setCityName] = useState("");
     const weatherApi = import.meta.env.VITE_WEATHER_API_KEY;
     const handleSubmit = async () => {
-        // Handle the city name submission logic here
         console.log("City submitted:", cityName);
         localStorage.setItem('cityName', cityName);
-        // Close the modal or perform other actions as needed
-        // For example, you might want to set a state in the parent component to close the modal
-  // Reload to reflect changes in App component
 
         const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${weatherApi}`);
         console.log(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${weatherApi}`);
