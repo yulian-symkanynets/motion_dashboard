@@ -14,9 +14,12 @@ function Weather() {
   const cityName = localStorage.getItem("cityName") || "London";
   const getWeather = async () => {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=6736dd7600e80cd8bdf0be2a765c91b8`
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=cbb94e086f9f646da25928e2c41d4439`
     );
     const data = await response.json();
+    if (response.status !== 200) {
+      return null;
+    }
     return data;
   };
   const [weatherData, setWeatherData] = React.useState<WeatherData | null>(null);
@@ -25,6 +28,9 @@ function Weather() {
     getWeather().then((data) => setWeatherData(data));
   }, []);
 
+  if (!weatherData) return <div className="flex justify-center flex-row align-center gap-15">
+    Nothing found
+  </div>;
   return (
     <div className="flex flex-row align-center gap-15">
       <IoSunnyOutline size={70} color="FAD656" />

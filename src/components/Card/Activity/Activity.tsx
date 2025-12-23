@@ -31,19 +31,25 @@ export type FrankfurterHistoricalResponse = {
   };
 };
 
+
 function Activity() {
   const [activity, setActivity] =
     React.useState<FrankfurterHistoricalResponse | null>(null);
 
+  const formatDate = (dateL: Date): string => {
+    const year = dateL.getFullYear();
+    const month = String(dateL.getMonth() + 1).padStart(2, '0');
+    const date = String(dateL.getDate()).padStart(2, '0');
+    return `${year}-${month}-${date}`;
+  }
+  
+
   const getActivity = async () => {
     const today = new Date();
 
-    const month = today.getMonth() + 1;
-    const year = today.getFullYear();
-    const date = today.getDate();
 
-    const currentDateString = `${year}-${month}-0${date}`;
-    const lastWeekDate = `${year}-${month}-0${date - 7}`;
+    const currentDateString = formatDate(today);
+    const lastWeekDate = formatDate(new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000));
 
     console.log(currentDateString);
     console.log(lastWeekDate);
